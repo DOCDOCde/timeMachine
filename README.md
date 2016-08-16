@@ -1,45 +1,5 @@
-ThinkPHP 5.0 RC4
-===============
 
-[![Downloads](https://img.shields.io/github/downloads/top-think/think/total.svg)](https://github.com/top-think/think/releases)
-[![Releases](https://img.shields.io/github/release/top-think/think.svg)](https://github.com/top-think/think/releases/latest)
-[![Releases Downloads](https://img.shields.io/github/downloads/top-think/think/latest/total.svg)](https://github.com/top-think/think/releases/latest)
-[![Packagist Status](https://img.shields.io/packagist/v/top-think/think.svg)](https://packagist.org/packages/topthink/think)
-[![Packagist Downloads](https://img.shields.io/packagist/dt/top-think/think.svg)](https://packagist.org/packages/topthink/think)
-
-ThinkPHP5在保持快速开发和大道至简的核心理念不变的同时，PHP版本要求提升到5.4，对已有的CBD模式做了更深的强化，优化核心，减少依赖，基于全新的架构思想和命名空间实现，是ThinkPHP突破原有框架思路的颠覆之作，其主要特性包括：
-
- + 基于命名空间和众多PHP新特性
- + 核心功能组件化
- + 强化路由功能
- + 更灵活的控制器
- + 重构的模型和数据库类
- + 配置文件可分离
- + 重写的自动验证和完成
- + 简化扩展机制
- + API支持完善
- + 改进的Log类
- + 命令行访问支持
- + REST支持
- + 引导文件支持
- + 方便的自动生成定义
- + 真正惰性加载
- + 分布式环境支持
- + 更多的社交类库
-
-> ThinkPHP5的运行环境要求PHP5.4以上。
-
-详细开发文档参考 [ThinkPHP5完全开发手册](http://www.kancloud.cn/manual/thinkphp5)
-
-## 使用 Composer 安装 ThinkPHP5
-~~~
-composer create-project topthink/think tp5 dev-master --prefer-dist
-~~~
-> 因为目前 ThinkPHP 5 正处于高速发展阶段，所以目前只能通过 dev-master 分支来初始化项目
-
-## 目录结构
-
-初始的目录结构如下：
+改动后的的目录结构如下：
 
 ~~~
 www  WEB部署目录（或者子目录）
@@ -47,15 +7,18 @@ www  WEB部署目录（或者子目录）
 ├─README.md             README文件
 ├─LICENSE.txt           授权说明文件
 ├─think                 命令行入口文件
-├─application           应用目录
+├─app                   应用目录
 │  ├─common             公共模块目录（可以更改）
 │  ├─runtime            应用的运行时目录（可写，可定制）
-│  ├─module_name        模块目录
+│  ├─home               模块目录
 │  │  ├─config.php      模块配置文件
 │  │  ├─common.php      模块函数文件
 │  │  ├─controller      控制器目录
 │  │  ├─model           模型目录
 │  │  ├─view            视图目录
+│  │  │  ├─public       公共视图
+│  │  │  ├─index        视图
+│  │  │  └─ ...
 │  │  └─ ...            更多类库目录
 │  │
 │  ├─common.php         公共函数文件
@@ -64,7 +27,7 @@ www  WEB部署目录（或者子目录）
 │  └─database.php       数据库配置文件
 │
 ├─public                WEB目录（对外访问目录）
-│  ├─index.php          入口文件
+│  │
 │  └─.htaccess          用于apache的重写
 │
 ├─thinkphp              框架系统目录
@@ -85,6 +48,7 @@ www  WEB部署目录（或者子目录）
 │
 ├─extend                扩展类库目录
 ├─vendor                第三方类库目录（Composer依赖库）
+├─index.php             入口文件
 ~~~
 
 > router.php用于php自带webserver支持，可用于快速测试
